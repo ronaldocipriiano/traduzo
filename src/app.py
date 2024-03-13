@@ -3,6 +3,7 @@ from flask import Flask
 from waitress import serve
 from controllers.admin_controller import admin_controller
 from controllers.translate_controller import bp as translate_controller
+from controllers.history_controller import history_controller
 
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.static_folder = "views/static"
 
 app.register_blueprint(admin_controller, url_prefix="/admin")
 app.register_blueprint(translate_controller, url_prefix="/")
+app.register_blueprint(history_controller, url_prefix="/history")
 
 
 def start_server(host="0.0.0.0", port=8000):
