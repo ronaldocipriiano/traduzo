@@ -18,4 +18,6 @@ class LanguageModel(AbstractModel):
     @classmethod
     def list_dicts(cls):
         languages = cls._collection.find({}, {"_id": 0})
-        return [language for language in languages]
+        language_list = [language for language in languages]
+        print(language_list)
+        return language_list
